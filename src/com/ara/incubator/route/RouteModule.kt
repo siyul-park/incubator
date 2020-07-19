@@ -6,12 +6,12 @@ import io.ktor.application.Application
 import io.ktor.routing.Routing
 import io.ktor.routing.routing
 
-object RouteModule : Module<Application, Routing>, Router {
+class RouteModule(private val router: Router) : Module<Application, Routing>, Router {
     override fun install(pipeline: Application) = with(pipeline) {
         routing { routes(this) }
     }
 
     override fun routes(routing: Routing) {
-        RootRouter.routes(routing)
+        router.routes(routing)
     }
 }
