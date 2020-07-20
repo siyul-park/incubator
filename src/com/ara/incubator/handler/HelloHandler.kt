@@ -6,7 +6,7 @@ import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.util.pipeline.PipelineContext
 
-object RootHandler: Handler {
+object HelloHandler : Handler {
     override suspend fun handle(context: PipelineContext<Unit, ApplicationCall>) = with(context) {
         call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
     }
