@@ -15,4 +15,6 @@ fun Application.module(testing: Boolean = false) {
     install(AuthenticationModule)
     install(ContentNegotiationModule)
     install(RouteModule(RoutingInitializer))
+
+//    DataBaseModule.install(H)
 }

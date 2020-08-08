@@ -1,12 +1,9 @@
 package com.ara.incubator.module
 
-import io.ktor.application.ApplicationCall
-import io.ktor.util.pipeline.Pipeline
-
-interface Module<P : Pipeline<*, ApplicationCall>, F: Any> {
-    fun install(pipeline: P): F
+interface Module<C : Any, F : Any> {
+    fun install(context: C): F
 }
 
-fun <P : Pipeline<*, ApplicationCall>, F : Any> P.install(
-        module: Module<P, F>
+fun <C : Any, F : Any> C.install(
+    module: Module<C, F>
 ) = module.install(this)

@@ -9,5 +9,5 @@ class FeatureModule<P : Pipeline<*, ApplicationCall>, B : Any, F : Any>(
     private val feature: ApplicationFeature<P, B, F>,
     private val configure: B.() -> Unit = {}
 ) : Module<P, F> {
-    override fun install(pipeline: P) = pipeline.install(feature, configure)
+    override fun install(context: P) = context.install(feature, configure)
 }

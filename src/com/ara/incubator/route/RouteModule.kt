@@ -7,7 +7,7 @@ import io.ktor.routing.Routing
 import io.ktor.routing.routing
 
 class RouteModule(private val initializer: Initializer<Routing>) : Module<Application, Routing> {
-    override fun install(pipeline: Application) = with(pipeline) {
+    override fun install(context: Application) = with(context) {
         routing { initializer.init(this) }
     }
 }
